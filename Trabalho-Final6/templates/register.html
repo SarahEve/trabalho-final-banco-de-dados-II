@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recycle System</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <h1 class="text-center mb-5">Cadastro de Usuário</h1>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <div class="mb-3">
+                    <label>
+                        <input type="radio" name="profile" value="descarte" required>
+                        <img src="{{ url_for('static', filename='recycle-descarte.png') }}" alt="Descarte" class="profile-image">
+                        Descarte
+                    </label>
+                    <P></P>
+                    <label>
+                        <input type="radio" name="profile" value="coleta" required>
+                        <img src="{{ url_for('static', filename='recycle-empresa.png') }}" alt="Empresa de Coleta" class="profile-image">
+                        Empresa de Coleta
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

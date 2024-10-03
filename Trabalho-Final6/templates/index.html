@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recycle System</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <div class="container">
+        <h1 class="text-center">Bem-vindo, {{ user_name }}!</h1>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <ul class="list-group">
+                    {% for point in points %}
+                        <li class="list-group-item">
+                            <strong>Endereço:</strong> {{ point['address'] }} <br>
+                            <strong>Tipo de Resíduo:</strong> {{ point['waste_type'] }} <br>
+                            <strong>Status:</strong> {{ point['status'] }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            {% if session.user_profile == 'descarte' %}
+                <a href="/add_point" class="btn btn-primary">Adicionar novo ponto</a>
+            {% endif %}
+            {% if session.user_profile == 'coleta' %}
+                <a href="/match" class="btn btn-success">Verificar pontos para coleta</a>
+            {% endif %}
+            <a href="/logout" class="btn btn-danger">Logout</a>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

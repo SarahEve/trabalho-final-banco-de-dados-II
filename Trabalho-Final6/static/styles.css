@@ -1,0 +1,18 @@
+body {
+    background-color: #f8f9fa; /* Fundo suave */
+}
+
+h1 {
+    margin-top: 100px; /* Espaçamento no topo */
+    color: #007bff; /* Cor azul */
+}
+
+.navbar {
+    background-color: #343a40; /* Cor da navbar */
+}
+
+.profile-image {
+    width: 100px; /* Ajuste a largura das imagens */
+    height: auto; /* Mantém a proporção */
+    padding: 0px;
+}

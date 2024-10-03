@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recycle System</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <h1 class="text-center mb-5">Pontos Disponíveis para Coleta</h1>
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <ul class="list-group">
+                {% for point in points %}
+                    <li class="list-group-item">
+                        <strong>Endereço:</strong> {{ point['address'] }} <br>
+                        <strong>Tipo de Resíduo:</strong> {{ point['waste_type'] }} <br>
+                        <form action="{{ url_for('collect', point_id=point['_id']) }}" method="POST">
+                            <button type="submit" class="btn btn-success">Coletar</button>
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>
+
